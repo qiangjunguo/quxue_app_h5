@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import 'vant/lib/index.css';
+import { Button } from 'vant';
+
+Vue.use(Button);
 Vue.config.productionTip = false
 
 new Vue({

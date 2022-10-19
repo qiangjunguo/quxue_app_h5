@@ -1,22 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-
+import Page from '../views/operation_page/index'
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path:'/page',
+    name:'page',
+    component:Page
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/',
+    name: 'Test',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/test/index.vue')
   }
 ]
 
@@ -26,4 +25,8 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to,from,next)=>{
+  document.title = '趣学app';
+  next()
+})
 export default router
